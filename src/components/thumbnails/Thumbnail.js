@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../utilities/utilities';
 
 export default function Thumbnail({ pokemon, url_image, _id }) {
   return (
     <>
-      <h1>{pokemon}</h1>
+      <h1>{pokemon.capitalize()}</h1>
       <img src={url_image} />
     </>
   );
