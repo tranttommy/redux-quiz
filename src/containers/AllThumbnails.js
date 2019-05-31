@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Thumbnails from './Thumbnails';
+import Thumbnails from '../components/thumbnails/Thumbnails';
 import { connect } from 'react-redux';
 import { getPokemons } from '../selectors/thumbnailSelectors';
 import { retrievePokemons } from '../actions/thumbnailActions';
