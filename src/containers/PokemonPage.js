@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import PokemonDetails from './PokemonDetails';
+import PokemonDetails from '../components/pokemon-page/PokemonDetails';
 import { connect } from 'react-redux';
 import { getPokemon } from '../selectors/pokemonPageSelectors.js';
 import { retrievePokemon } from '../actions/pokemonPageActions';
