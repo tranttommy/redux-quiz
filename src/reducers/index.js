@@ -8,8 +8,9 @@ export default function reducer(state = initialState, action) {
     case RETRIEVE_POKEMONS:
       return { ...state, pokemons: action.payload };
     case RETRIEVE_POKEMON:
-      return { ...state, [action.payload.id]: action.payload.pokemon };
+      return { ...state, pokemon: action.payload };
     default:
       return state;
   }
 }
+
