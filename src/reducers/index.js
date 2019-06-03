@@ -1,16 +1,8 @@
-import { RETRIEVE_POKEMONS } from '../actions/thumbnailActions';
-import { RETRIEVE_POKEMON } from '../actions/pokemonPageActions';
+import { combineReducers } from 'redux';
+import thumbnails from './thumbnailReducer';
+import details from './detailReducer';
 
-const initialState = {};
-
-export default function reducer(state = initialState, action) {
-  switch(action.type) {
-    case RETRIEVE_POKEMONS:
-      return { ...state, pokemons: action.payload };
-    case RETRIEVE_POKEMON:
-      return { ...state, pokemon: action.payload };
-    default:
-      return state;
-  }
-}
-
+export default combineReducers({
+  thumbnails,
+  details
+});
