@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Thumbnails from '../components/thumbnails/Thumbnails';
 import { connect } from 'react-redux';
-import { getPokemons } from '../selectors/thumbnailSelectors';
-import { retrievePokemons } from '../actions/thumbnailActions';
+import { getThumbnails } from '../selectors/thumbnailSelectors';
+import { retrieveThumbnails } from '../actions/thumbnailActions';
 
 class AllThumbnails extends PureComponent {
   static propTypes = {
@@ -23,12 +23,12 @@ class AllThumbnails extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  pokemons: getPokemons(state)
+  pokemons: getThumbnails(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   fetch() {
-    dispatch(retrievePokemons());
+    dispatch(retrieveThumbnails());
   }
 });
 
