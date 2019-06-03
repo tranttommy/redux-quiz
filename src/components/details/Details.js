@@ -4,6 +4,7 @@ import '../../utilities/utilities';
 
 export default function PokemonDetails({ pokemon }) {
   return (
+    pokemon &&
     <section>
       <h1>{pokemon.pokemon}</h1>
       <img src={pokemon.url_image} />

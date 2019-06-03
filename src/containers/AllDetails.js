@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import PokemonDetails from '../components/pokemon-page/PokemonDetails';
+import PokemonDetails from '../components/details/Details';
 import { connect } from 'react-redux';
-import { getPokemon } from '../selectors/pokemonPageSelectors.js';
-import { retrievePokemon } from '../actions/pokemonPageActions';
+import { getDetails } from '../selectors/detailSelectors';
+import { retrieveDetails } from '../actions/detailActions';
 
 class PokemonPage extends PureComponent {
   static propTypes = {
@@ -24,12 +24,12 @@ class PokemonPage extends PureComponent {
 }
 
 const mapStateToProps = (state, props) => ({
-  pokemon: getPokemon(state, props.match.params.id)
+  pokemon: getDetails(state, props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
   fetch() {
-    dispatch(retrievePokemon(props.match.params.id));
+    dispatch(retrieveDetails(props.match.params.id));
   }
 });
 
