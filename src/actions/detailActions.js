@@ -6,5 +6,5 @@ export const retrieveDetails = id => ({
     type: RETRIEVE_DETAILS,
     id
   },
-  payload: fetchPokemon(id),
+  payload: fetchPokemon({ id }),
 });
