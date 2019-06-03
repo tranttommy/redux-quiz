@@ -2,14 +2,16 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Thumbnails from '../components/thumbnails/Thumbnails';
 import { connect } from 'react-redux';
-import { getThumbnails } from '../selectors/thumbnailSelectors';
-import { retrieveThumbnails } from '../actions/thumbnailActions';
+import { getThumbnails, getCurrentPage } from '../selectors/thumbnailSelectors';
+import { retrieveThumbnails, updatePage } from '../actions/thumbnailActions';
 import Paging from '../components/thumbnails/Paging';
 
 class AllThumbnails extends PureComponent {
   static propTypes = {
     fetch: PropTypes.func.isRequired,
-    pokemons: PropTypes.array
+    pokemons: PropTypes.array,
+    currentPage: PropTypes.number,
+    updatePage: PropTypes.func
   }
 
   componentDidMount() {
@@ -19,20 +21,25 @@ class AllThumbnails extends PureComponent {
   render() {
     return (
       <>
-        <Paging currentPage={1} totalPages={4} updatePage={newPage => console.log(newPage)} />
+        <Paging currentPage={this.props.currentPage} updatePage={this.props.updatePage} />
         <Thumbnails pokemons={this.props.pokemons} />
-        </>
+      </>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  pokemons: getThumbnails(state)
+  pokemons: getThumbnails(state),
+  currentPage: getCurrentPage(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   fetch() {
     dispatch(retrieveThumbnails());
+  },
+  updatePage(newPage) {
+    dispatch(updatePage(newPage));
+    dispatch(retrieveThumbnails({ page: newPage }));
   }
 });
 
