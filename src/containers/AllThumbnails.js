@@ -18,6 +18,11 @@ class AllThumbnails extends PureComponent {
     this.props.fetch();
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.currentPage !== prevProps.currentPage)
+      this.props.fetch({ page: this.props.currentPage });
+  }
+
   render() {
     return (
       <>
@@ -34,12 +39,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetch() {
-    dispatch(retrieveThumbnails());
+  fetch(query) {
+    dispatch(retrieveThumbnails(query));
   },
   updatePage(newPage) {
     dispatch(updatePage(newPage));
-    dispatch(retrieveThumbnails({ page: newPage }));
   }
 });
 
