@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
-import { promiseMiddleware } from 'promise-middleware-redux';
+import thunk from 'redux-thunk';
 
 export default createStore(
   reducer,
   compose(
-    applyMiddleware(promiseMiddleware),
+    applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );

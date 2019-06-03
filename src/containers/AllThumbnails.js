@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Thumbnails from '../components/thumbnails/Thumbnails';
 import { connect } from 'react-redux';
-import { getThumbnails, getCurrentPage } from '../selectors/thumbnailSelectors';
+import { getThumbnails, getCurrentPage, getTotalPages } from '../selectors/thumbnailSelectors';
 import { retrieveThumbnails, updatePage } from '../actions/thumbnailActions';
 import Paging from '../components/thumbnails/Paging';
 
@@ -11,7 +11,8 @@ class AllThumbnails extends PureComponent {
     fetch: PropTypes.func.isRequired,
     pokemons: PropTypes.array,
     currentPage: PropTypes.number,
-    updatePage: PropTypes.func
+    updatePage: PropTypes.func,
+    totalPages: PropTypes.number
   }
 
   componentDidMount() {
@@ -26,7 +27,7 @@ class AllThumbnails extends PureComponent {
   render() {
     return (
       <>
-        <Paging currentPage={this.props.currentPage} updatePage={this.props.updatePage} />
+        <Paging currentPage={this.props.currentPage} totalPages={this.props.totalPages} updatePage={this.props.updatePage} />
         <Thumbnails pokemons={this.props.pokemons} />
       </>
     );
@@ -36,6 +37,7 @@ class AllThumbnails extends PureComponent {
 const mapStateToProps = state => ({
   pokemons: getThumbnails(state),
   currentPage: getCurrentPage(state),
+  totalPages: getTotalPages(state)
 });
 
 const mapDispatchToProps = dispatch => ({

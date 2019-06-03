@@ -21,7 +21,7 @@ export default class CommentForm extends PureComponent {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <textarea name="comment" onChange={this.handleChange} value={this.state.value}></textarea>
+        <textarea name="comment" onChange={this.handleChange} value={this.state.comment}></textarea>
         <button>Submit</button>
       </form>
     );
