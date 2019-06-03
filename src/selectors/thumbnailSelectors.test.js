@@ -1,13 +1,11 @@
-import { getPokemons } from './thumbnailSelectors';
+import { getThumbnails } from './thumbnailSelectors';
 
 describe('thumbnail selectors', () => {
   it('gets results from state', () => {
     const state = {
-      results: {
-        results: 'poop'
-      }
+      thumbnails: 'poop'
     };
 
-    expect(getPokemons(state)).toBe('poop');
+    expect(getThumbnails(state)).toBe('poop');
   });
 });

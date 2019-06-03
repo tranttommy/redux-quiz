@@ -1,1 +1,1 @@
-export const getPokemons = state => state.pokemons || [];
+export const getThumbnails = state => state.thumbnails || [];
