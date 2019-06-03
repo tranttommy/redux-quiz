@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Paging({ currentPage, updatePage }) {
+export default function Paging({ currentPage, totalPages, updatePage }) {
   return (
     <nav>
-      <button onClick={() => updatePage(currentPage - 1)}>{'<<'}</button>
-      Page { currentPage }
-      <button onClick={() => updatePage(currentPage + 1)}>{'>>'}</button>
+      <button onClick={() => updatePage(currentPage - 1)} disabled={currentPage === 1}>{'<<'}</button>
+      Page { currentPage } of {totalPages}
+      <button onClick={() => updatePage(currentPage + 1)} disabled={currentPage === totalPages}>{'>>'}</button>
     </nav>
   );
 }
