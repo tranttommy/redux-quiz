@@ -1,8 +1,6 @@
 import { DELETE_COMMENT, ADD_COMMENT } from '../actions/commentActions';
 
-const initialState = {
-  '5cef3501ef6005a77cd4fd17': ['cool', 'rad']
-};
+const initialState = {};
 
 export default function commentReducer(state = initialState, action) {
   switch(action.type) {
