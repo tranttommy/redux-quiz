@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../utilities/utilities';
 import AllComments from '../../containers/AllComments';
+import CreateComment from '../../containers/CreateComment';
 
 export default function PokemonDetails({ pokemon }) {
   return (
@@ -13,6 +14,7 @@ export default function PokemonDetails({ pokemon }) {
         <li>{pokemon.type_2}</li>
       </ul>
       <AllComments id={pokemon._id} />
+      <CreateComment id={pokemon._id} />
     </section>
   );
 }
