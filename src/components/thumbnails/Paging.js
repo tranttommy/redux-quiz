@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Paging({ currentPage, totalPages, updatePage }) {
+export default function Paging({ currentPage, updatePage }) {
   return (
     <nav>
       <button onClick={() => updatePage(currentPage - 1)}>{'<<'}</button>
-      Page { currentPage } out of { totalPages }
+      Page { currentPage }
       <button onClick={() => updatePage(currentPage + 1)}>{'>>'}</button>
     </nav>
   );
