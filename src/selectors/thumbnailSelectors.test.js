@@ -1,11 +1,12 @@
-import { getThumbnails, getCurrentPage, getTotalPages } from './thumbnailSelectors';
+import { getThumbnails, getCurrentPage, getTotalPages, getSearch } from './thumbnailSelectors';
 
 describe('thumbnail selectors', () => {
   const state = {
     thumbnails: {
       results: 'poop',
       currentPage: 1,
-      totalPages: 20
+      totalPages: 20,
+      search: 'hello'
     }
   };
 
@@ -19,5 +20,9 @@ describe('thumbnail selectors', () => {
 
   it('gets total pages from state', () => {
     expect(getTotalPages(state)).toBe(20);
+  });
+
+  it('gets search from state', () => {
+    expect(getSearch(state)).toBe('hello');
   });
 });

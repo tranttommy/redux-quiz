@@ -12,7 +12,7 @@ export default function Paging({ currentPage, totalPages, updatePage }) {
 }
 
 Paging.propTypes = {
-  currentPage: PropTypes.number,
-  totalPages: PropTypes.number,
-  updatePage: PropTypes.func
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  updatePage: PropTypes.func.isRequired
 };
