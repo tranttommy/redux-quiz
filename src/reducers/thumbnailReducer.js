@@ -1,6 +1,7 @@
 import { RETRIEVE_THUMBNAILS, UPDATE_PAGE, SET_TOTAL_PAGES, UPDATE_SEARCH } from '../actions/thumbnailActions';
 
 const initialState = {
+  results: [],
   currentPage: 1,
   totalPages: 1,
   search: ''
